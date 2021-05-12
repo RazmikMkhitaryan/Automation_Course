@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -90,7 +91,7 @@ public class Test {
             e.printStackTrace();
         }
         driver.findElement(By.cssSelector("[class='toolContainer-0-2-52']:last-child")).click();
-       // driver.findElement(By.cssSelector("[class='removeBgItem-0-2-141']]")).click();
+        // driver.findElement(By.cssSelector("[class='removeBgItem-0-2-141']]")).click();
 
 //        driver.findElement(By.cssSelector("[class='removeBgContent-0-2-139']:nth-child(2)")).click();
 //        WebElement element1 = driver.findElement(By.cssSelector("[accept='image/jpeg, image/png']"));
