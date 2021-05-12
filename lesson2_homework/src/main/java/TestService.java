@@ -46,7 +46,7 @@ public class TestService {
             gt= gt+r;
         }
 
-        String dd= buffer.toString()+ buffer.toString().toUpperCase()+gt;
+        String dd= buffer.toString()+ buffer.toString().toUpperCase()+gt+".";
         String gg= dd+"\n";
         Files.write(Paths.get("text.txt"), gg.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
         return dd;

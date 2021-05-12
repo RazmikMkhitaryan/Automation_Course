@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -46,7 +45,7 @@ public class Test {
         }
 
         try {
-            driver.findElement(By.name("password")).sendKeys(TestService.stringGenerator(6) + ".");
+            driver.findElement(By.name("password")).sendKeys(TestService.stringGenerator(6));
         } catch (IOException e) {
             e.printStackTrace();
         }
