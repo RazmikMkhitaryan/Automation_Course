@@ -1,6 +1,9 @@
+import java.io.File;
 import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -43,7 +46,7 @@ public class Test {
         }
 
         try {
-            driver.findElement(By.name("password")).sendKeys(TestService.stringGenerator(6));
+            driver.findElement(By.name("password")).sendKeys(TestService.stringGenerator(6) + ".");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -63,7 +66,38 @@ public class Test {
         } catch (Exception e) {
             System.out.println("Incorrect Password");
         }
+        //Go to batch screen
+        driver.findElement(By.cssSelector("[data-test='headerNavigation-navigationListItem-Batch Editor']")).click();
+        //Upload a photo
+
+        try {
+            WebElement element = driver.findElement(By.cssSelector("[accept='image/jpeg,image/png']"));
+            String imagePath = System.getProperty("user.dir") + File.separator + "image.jpeg";
+            element.sendKeys(imagePath);
+        } catch (Exception e) {
+            System.out.println("Uploading failed");
+        }
+
+        try {
+            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("[class='gridImage-0-2-64']")));
+            System.out.println("Uploading is successfully done");
+        } catch (Exception e) {
+            System.out.println("Uploading failed");
+        }
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.findElement(By.cssSelector("[class='toolContainer-0-2-52']:last-child")).click();
+       // driver.findElement(By.cssSelector("[class='removeBgItem-0-2-141']]")).click();
+
+//        driver.findElement(By.cssSelector("[class='removeBgContent-0-2-139']:nth-child(2)")).click();
+//        WebElement element1 = driver.findElement(By.cssSelector("[accept='image/jpeg, image/png']"));
+//        element1.sendKeys("/Users/razmkhitaryan/Desktop/photo-1554151228-14d9def656e4.jpeg");
 
 
     }
 }
+
