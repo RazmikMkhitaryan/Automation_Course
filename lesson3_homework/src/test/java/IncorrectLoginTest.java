@@ -5,6 +5,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class IncorrectLoginTest {
@@ -24,9 +25,8 @@ public class IncorrectLoginTest {
     }
 
 
-
     /**
-     * My test is about login functionality , i tra all versions ro do log in
+     * My test is about login functionality , i try all versions to do log in
      * 1.no username no password
      * 2.yes username no password
      * 3.no username yes password
@@ -44,6 +44,7 @@ public class IncorrectLoginTest {
                 //loginPage.typePassword("sgdfhgsf");
                 if (loginPage.signInButtonIsClickable()) {
                     System.out.println("button is clickable");
+
                     loginPage.clickSignInButton();
                 } else {
                     System.out.println("Button is not clickable");
@@ -53,6 +54,7 @@ public class IncorrectLoginTest {
             if (i == 1) {
                 // loginPage.typeUsername("");
                 loginPage.typePassword("sgdfhgsf");
+
                 if (loginPage.signInButtonIsClickable()) {
                     System.out.println("button is clickable");
                     loginPage.clickSignInButton();
@@ -110,4 +112,4 @@ public class IncorrectLoginTest {
 
 }
 
-//}
+

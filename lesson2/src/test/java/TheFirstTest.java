@@ -1,47 +1,46 @@
-import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.sql.Time;
-import java.util.concurrent.TimeUnit;
-
 import static org.testng.Assert.assertTrue;
+import static setup.DriverSetup.getDriver;
 
 public class TheFirstTest {
-    private WebDriver driver;
-
     @BeforeMethod
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "/Users/razmkhitaryan/Downloads/chromedriver");
-        driver = new ChromeDriver();
-        driver.get("https://picsartstage2.com");
+        // driver = new ChromeDriver();
         //driver.get("https://picsart.com");
     }
 
     @AfterMethod
     public void tearDown() {
-        // driver.quit();
+        getDriver().quit();
     }
 
     @Test
     public void firstTest() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage();
         loginPage.clickLoginButton();
-        // loginPage.typeUsername("smart_offer");
         loginPage.typeUsername("replayeditor");
-        //   loginPage.typePassword("Lusin86");
         loginPage.typePassword("123456");
         loginPage.clickSignInButton();
         loginPage.isAvatarDisplayed();
-        assertTrue(driver.getCurrentUrl().contains("/create"), "user was not logged in");
+        assertTrue(getDriver().getCurrentUrl().contains("/create"), "user was not logged in");
         assertTrue(loginPage.isUserLoggedIn(), "User was not logged in!");
     }
 
+    @Test
+    public void loginWithKey() {
+        // driver.manage().getCookies();
+        //driver.manage().getCookieNamed("user_key");
+        LoginPage loginPage = new LoginPage();
+        Cookie cookie = new Cookie("user_key", "f783a943-e4c0-4b5d-93e6-e838aebb54c2");
+        getDriver().manage().addCookie(cookie);
+        getDriver().navigate().refresh();
+        assertTrue(loginPage.isUserLoggedIn(), "User was not logged in!");
+
+    }
 
 }

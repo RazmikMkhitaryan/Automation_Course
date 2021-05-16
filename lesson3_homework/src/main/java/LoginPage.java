@@ -53,8 +53,10 @@ public class LoginPage {
 
 
     public void clickSignInButton() {
-        WebElement signInButton = driver.findElement(signInButtonLocation);
-        signInButton.click();
+        try {
+            WebElement signInButton = driver.findElement(signInButtonLocation);
+            signInButton.click();
+        }catch (Exception e){}
 
     }
 
