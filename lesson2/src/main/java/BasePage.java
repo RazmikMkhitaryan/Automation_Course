@@ -3,6 +3,10 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 import static setup.DriverSetup.getDriver;
 
 public abstract class BasePage {
@@ -15,7 +19,7 @@ public abstract class BasePage {
 
     public abstract String getUrl();
 
-    public void open(String url){
+    public void open(String url) {
         System.out.println("OPening url->" + url);
         driver.get(url);
     }
@@ -38,7 +42,7 @@ public abstract class BasePage {
     }
 
     public void click(By location) {
-        System.out.println("clicking on element"+location.toString());
+        System.out.println("clicking on element" + location.toString());
         click(find(location));
     }
 
@@ -48,7 +52,7 @@ public abstract class BasePage {
 
     public boolean isDisplayed(WebElement element) {
         try {
-            return  element.isDisplayed();
+            return element.isDisplayed();
         } catch (NoSuchElementException e) {
             return false;
         }
@@ -60,6 +64,15 @@ public abstract class BasePage {
         } catch (NoSuchElementException e) {
             return false;
         }
+    }
+
+    public void changeTab(int tabIndex) {
+        List<String> windowHandles = new ArrayList<>(getDriver().getWindowHandles());
+        getDriver().switchTo().window(windowHandles.get(tabIndex));
+    }
+
+    public List<WebElement> findAll(By location) {
+        return driver.findElements(location);
     }
 
 

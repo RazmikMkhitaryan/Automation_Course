@@ -7,7 +7,7 @@ public class DriverSetup {
     public static WebDriver driver;
 
     public static WebDriver getDriver() {
-       if (driver == null) {
+        if (driver == null) {
             System.setProperty("webdriver.chrome.driver", "/Users/razmkhitaryan/Downloads/chromedriver");
             driver = new ChromeDriver();
         }
