@@ -13,17 +13,23 @@ public class UserPage extends BasePage {
     private By button = By.cssSelector(".c-get-the-app-popup.js-prevent-default-event.primary-big-btn");
     private By qrCode = By.id("qrcode");
 
+    WaitHelper waitHelper = new WaitHelper();
+
+
     public UserPage() {
+
         open(getUrl());
     }
 
 
     public String getUrl() {
+
         return BASE_URL + "/create";
     }
 
 
     public void goToDiscovery() {
+        waitHelper.waitForElementDisplay(discovery);
         List<WebElement> element = getDriver().findElements(discovery);
 
         Actions actions = new Actions(getDriver());
@@ -31,16 +37,19 @@ public class UserPage extends BasePage {
     }
 
     public void clickOnChallanges() {
+        waitHelper.waitForElementBeClickable(challenges);
         click(challenges);
     }
 
     public void selectChallenge() {
+        waitHelper.waitForElementDisplay(gridItems);
         List<WebElement> element = getDriver().findElements(gridItems);
 
         click(element.get(element.size() - 1));
     }
 
     public void clickOnButton() {
+        waitHelper.waitForElementDisplay(button);
         click(button);
     }
 
