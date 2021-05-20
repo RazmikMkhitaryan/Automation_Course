@@ -30,10 +30,9 @@ public class UserPage extends BasePage {
 
     public void goToDiscovery() {
         waitHelper.waitForElementDisplay(discovery);
-        List<WebElement> element = getDriver().findElements(discovery);
-
+        WebElement element = getDriver().findElement(discovery);
         Actions actions = new Actions(getDriver());
-        actions.moveToElement(element.get(element.size() - 1)).click().build().perform();
+        actions.moveToElement(element).build().perform();
     }
 
     public void clickOnChallanges() {
