@@ -29,7 +29,7 @@ public class UserPage extends BasePage {
 
 
     public void goToDiscovery() {
-        waitHelper.waitForElementDisplay(discovery);
+        WaitHelper.getInstance().waitForElementDisplay(discovery);
         WebElement element = getDriver().findElement(discovery);
         Actions actions = new Actions(getDriver());
         actions.moveToElement(element).build().perform();

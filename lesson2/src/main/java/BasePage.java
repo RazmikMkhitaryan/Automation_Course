@@ -14,6 +14,7 @@ public abstract class BasePage {
     public static final String BASE_URL = "https://picsartstage2.com";
 
     public BasePage() {
+
         this.driver = getDriver();
     }
 

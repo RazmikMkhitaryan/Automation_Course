@@ -10,7 +10,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static setup.DriverSetup.getDriver;
 
-public class TheFirstTest {
+public class TheFirstTest extends TestBase{
     @BeforeMethod
     public void setup() {
         // driver = new ChromeDriver();
@@ -20,10 +20,7 @@ public class TheFirstTest {
 //        getDriver().navigate().refresh();
     }
 
-    @AfterMethod
-    public void tearDown() {
-        //  getDriver().quit();
-    }
+
 
     @Test
     public void firstTest() throws InterruptedException {
@@ -80,6 +77,17 @@ public class TheFirstTest {
         Cookie cookie1 = new Cookie("we-editor-first-open", "true");
         getDriver().manage().addCookie(cookie1);
     }
+
+
+
+    @Test
+    public void qrTest(){
+        ChallengePage challengePage = new ChallengePage("ircbadmintonbirdie");
+        challengePage.clickParticipate();
+        GetFreeAppDialog getFreeAppDialog = new GetFreeAppDialog();
+        assertTrue(getFreeAppDialog.isQrVisible(), "QR was not displayed!");
+    }
+
 
 
 }
