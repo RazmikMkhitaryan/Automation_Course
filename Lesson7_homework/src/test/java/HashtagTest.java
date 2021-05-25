@@ -1,8 +1,7 @@
 import com.google.gson.JsonObject;
 import okhttp3.*;
 import org.openqa.selenium.Cookie;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 
@@ -13,7 +12,7 @@ public class HashtagTest {
     private String key;
     private String imageId;
 
-    @BeforeTest
+    @BeforeMethod
     public void setup() throws IOException, InterruptedException {
         JsonObject user = ApiHelper.createUser();
         key = user.get("response").getAsJsonObject().get("key").getAsString();
@@ -24,7 +23,16 @@ public class HashtagTest {
         getDriver().navigate().refresh();
         JsonObject photo = ApiHelper.uploadPhoto(key);
         imageId = photo.get("id").getAsString();
+        System.out.println("User's user_key is -> " + key);
+    }
 
+    /**
+     * after test the created user deleted,  EXTRA task successfully done )))
+     */
+    @AfterMethod
+    public void tearDown() throws IOException {
+        ApiHelper.deleteUser(key);
+        getDriver().navigate().refresh();
     }
 
     /**

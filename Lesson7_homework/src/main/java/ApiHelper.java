@@ -98,6 +98,19 @@ public class ApiHelper {
         Response response = client.newCall(request).execute();
     }
 
+    //Extra task Done ))
+    public static void deleteUser(String userKey) throws IOException {
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("text/plain");
+        RequestBody body = RequestBody.create(mediaType, "");
+        Request request = new Request.Builder()
+                .url("https://api.picsart.com/preproduction/users/remove?key=" + userKey)
+                .method("POST", body)
+                .build();
+        Response response = client.newCall(request).execute();
+    }
+
 
     public static void main(String[] args) throws IOException {
         createUser();
