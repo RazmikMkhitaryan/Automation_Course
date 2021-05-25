@@ -85,7 +85,7 @@ public class ApiHelper {
     }
 
 
-    public static void editHashtag(String userKey, String imageId, String hashtag) throws IOException {
+    public static void addHashtag(String userKey, String imageId, String hashtag) throws IOException {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("application/json");

@@ -40,7 +40,6 @@ public class CommentTest extends TestBase {
         getDriver().manage().addCookie(cookie);
         getDriver().navigate().refresh();
 
-
         // ApiHelper.addComment(key2, image.get("id").getAsString());
         ApiHelper.addComment(key2, myImage);
         //  new ImageBrowserPage(image.get("id").getAsString());

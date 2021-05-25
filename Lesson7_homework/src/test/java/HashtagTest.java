@@ -1,10 +1,7 @@
 import com.google.gson.JsonObject;
-import okhttp3.*;
 import org.openqa.selenium.Cookie;
 import org.testng.annotations.*;
-
 import java.io.IOException;
-
 import static DriverSetup.Setup.getDriver;
 import static org.testng.Assert.assertTrue;
 
@@ -40,7 +37,7 @@ public class HashtagTest {
      */
     @Test
     public void addHashtag() throws IOException, InterruptedException {
-        ApiHelper.editHashtag(key, imageId, ImageBrowserPage.HASHTAG);
+        ApiHelper.addHashtag(key, imageId, ImageBrowserPage.HASHTAG);
         ImageBrowserPage imageBrowserPage = new ImageBrowserPage(imageId);
         assertTrue(imageBrowserPage.isHashtagAdded(), "hashtag was not added");
     }
