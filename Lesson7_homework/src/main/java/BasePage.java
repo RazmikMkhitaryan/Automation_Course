@@ -5,9 +5,8 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-import static setup.DriverSetup.getDriver;
+import static DriverSetup.Setup.getDriver;
 
 public abstract class BasePage {
     protected WebDriver driver;
