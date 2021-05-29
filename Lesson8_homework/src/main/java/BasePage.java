@@ -6,14 +6,17 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import static setup.DriverSetup.getDriver;
 
 public abstract class BasePage {
     private static final Logger LOGGER = Logger.getLogger(BasePage.class);
     protected WebDriver driver;
-    public static final String BASE_URL = "https://picsartstage2.com";
+    public static final String BASE_URL="http://picsartstage2.com";
+//    {
+//        String url = System.getProperty("selenium.url", "http://picsartstage2.com");
+//
+//    }
 
     public BasePage() {
 
