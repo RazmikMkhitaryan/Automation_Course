@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.UUID;
 
+import static org.testng.Assert.assertTrue;
 import static setup.DriverSetup.getDriver;
 
 public class LikeTest {
@@ -31,9 +32,12 @@ public class LikeTest {
 
     @Test
     public void Like() throws IOException, InterruptedException {
-        JsonObject image = ApiHelper.uploadPhoto(key);
-        ApiHelper.likePhoto(key, image.get("id").getAsString());
-        new ImageBrowserPage(image.get("id").getAsString());
+      //  JsonObject image = ApiHelper.uploadPhoto(key);
+      //  ApiHelper.likePhoto(key, image.get("id").getAsString());
+      //  new ImageBrowserPage(image.get("id").getAsString());
+        ImageBrowserPage imageBrowserPage = new ImageBrowserPage("354400546054201");
+        assertTrue(true,"jhbcjhdsc");
+        System.out.println(imageBrowserPage.getLikeIcon().getClass().toString());
 
 
     }

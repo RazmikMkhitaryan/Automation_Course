@@ -71,7 +71,7 @@ public class ApiHelper {
                 .addFormDataPart("type", "photo")
                 .addFormDataPart("file", "image2.jpeg",
                         RequestBody.create(MediaType.parse("application/octet-stream"),
-                                new File("/Users/razmkhitaryan/Desktop/image2.jpeg")))
+                                new File("/Users/razmkhitaryan/Desktop/image2.jpg")))
                 .addFormDataPart("is_public", "1")
                 .addFormDataPart("tags", "#freetoedit")
                 .build();
