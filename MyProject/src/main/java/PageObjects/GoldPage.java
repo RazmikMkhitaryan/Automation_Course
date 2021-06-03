@@ -36,10 +36,8 @@ public class GoldPage extends BasePage{
 
         Actions action = new Actions(getDriver());
 
-        action.moveToElement(carousel).pause(Duration.ofSeconds(2))
-                .clickAndHold(carousel).pause(Duration.ofSeconds(2))
-                .moveByOffset(-100, 20)
-                .release().build();
+        action.moveToElement(carousel).clickAndHold(carousel)
+                .moveByOffset(-100, 0).release().build();
     }
 
 }
