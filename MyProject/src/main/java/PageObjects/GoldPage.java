@@ -39,7 +39,7 @@ public class GoldPage extends BasePage{
         action.moveToElement(carousel).clickAndHold(carousel)
                 .moveByOffset(-100, 0).release().build();
         action.moveToElement(carousel).clickAndHold(carousel)
-                .moveByOffset(100, 0).release().build();
+                .moveByOffset(-100, 0).release().build();
 
     }
 
